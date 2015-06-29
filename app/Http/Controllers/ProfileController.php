@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -16,7 +18,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('user', compact('users'));
     }
 
     /**
@@ -58,7 +61,8 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('partials.edit', compact('user'));
     }
 
     /**
@@ -67,9 +71,12 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->except(['_method', '_token']);
+        $user = $this->users->find($id);
+
+        $user->update($data);
     }
 
     /**
@@ -81,5 +88,10 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function download($id){
+        
+        
     }
 }
