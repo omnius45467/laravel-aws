@@ -57,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aws.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="aws.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/aws.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.548387" vertical-offset="0" max-vertical-offset="810">
+            <state vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="810">
               <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bucket-policy.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bucket-policy.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15337424" vertical-offset="0" max-vertical-offset="489">
+              <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -144,6 +154,7 @@
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/.env.example" />
         <option value="$PROJECT_DIR$/config/aws.php" />
+        <option value="$PROJECT_DIR$/bucket-policy.txt" />
       </list>
     </option>
   </component>
@@ -1048,12 +1059,12 @@
       <updated>1435300895415</updated>
       <workItem from="1435300896390" duration="1164000" />
       <workItem from="1435331542746" duration="6146000" />
-      <workItem from="1435590969452" duration="4698000" />
+      <workItem from="1435590969452" duration="4800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12008000" />
+    <option name="totallyTimeSpent" value="12110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1412,8 +1423,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/aws.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.548387" vertical-offset="0" max-vertical-offset="810">
+        <state vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="810">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bucket-policy.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15337424" vertical-offset="0" max-vertical-offset="489">
+          <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
           <folding />
         </state>
       </provider>
