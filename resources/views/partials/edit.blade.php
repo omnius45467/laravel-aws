@@ -16,8 +16,8 @@
                         $user->email]) !!}
                     </div>
                     <div class="form-group col-md-4">
-                        {!! Form::label('profile-picture') !!}
-                        {!! Form::file('profile-picture', '', ['class' => 'form-control', 'placeholder' =>'']) !!}
+                        {!! Form::label('img') !!}
+                        {!! Form::file('img', '', ['class' => 'form-control', 'placeholder' =>'']) !!}
                     </div>
                     <div class="col-md-12">
                         {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}

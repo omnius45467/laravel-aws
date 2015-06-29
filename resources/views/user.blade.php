@@ -14,7 +14,11 @@
                                 <button><a href="/home/{{$user->id}}/edit">Edit</a></button>
                             </div>
                             <div class="col-md-6">
+                                @if($user->img)
                                 <img src="" alt=""/>
+                                @else
+                                <p>No img</p>
+                                @endif
                             </div>
                         </div>
                     </div>

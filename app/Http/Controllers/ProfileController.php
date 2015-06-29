@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Marx\Repositories\Contracts\UserRepository;
 use App\User;
+
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
@@ -53,9 +57,27 @@ class ProfileController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request, $id)
     {
-        //
+
+        $data = $request->all();
+
+//        $createdUsers = [];
+
+        foreach ($request->file('files') as $file) {
+
+            $name = $file->getClientOriginalName();
+            Storage::put($name, File::get($file));
+
+            $data['img'] = $name;
+
+            $user = $this->users->create($data);
+//            $createdUsers[] = $user->id;
+        }
+
+
+        return redirect()->route('home.update');
+
     }
 
     /**
