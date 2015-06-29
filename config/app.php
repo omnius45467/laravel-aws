@@ -138,7 +138,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
-        Aws\Laravel\AwsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -146,7 +145,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\DatabaseServiceProvider::class,
-
 
     ],
 
@@ -198,7 +196,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form'		=> Illuminate\Html\FormFacade::class,
         'HTML'		=> Illuminate\Html\HtmlFacade::class,
-        'AWS'       => Aws\Laravel\AwsFacade::class,
+
     ],
 
 ];
