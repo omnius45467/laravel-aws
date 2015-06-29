@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', 'zVh5nzPXb9QQAP0XHaGBDQmqBSOzwkAn'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -138,12 +138,14 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
+        Aws\Laravel\AwsServiceProvider::class,
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\DatabaseServiceProvider::class,
 
 
     ],
@@ -196,7 +198,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form'		=> Illuminate\Html\FormFacade::class,
         'HTML'		=> Illuminate\Html\HtmlFacade::class,
-
+        'AWS'       => Aws\Laravel\AwsFacade::class,
     ],
 
 ];
