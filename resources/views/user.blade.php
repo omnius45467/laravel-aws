@@ -15,7 +15,7 @@
                             </div>
                             <div class="col-md-6">
                                 @if($user->img)
-                                <img src="" alt=""/>
+                                    {!! link_to_route('home.download', '', [$user->id], ['class'=>'fa fa-download btn btn-info'], ['attribute'=> 'download']) !!}
                                 @else
                                 <p>No img</p>
                                 @endif

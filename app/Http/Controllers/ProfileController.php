@@ -61,21 +61,8 @@ class ProfileController extends Controller
     {
 
         $data = $request->all();
-
-//        $createdUsers = [];
-
-        foreach ($request->file('files') as $file) {
-
-            $name = $file->getClientOriginalName();
-            Storage::put($name, File::get($file));
-
-            $data['img'] = $name;
-
-            $user = $this->users->create($data);
-//            $createdUsers[] = $user->id;
-        }
-
-
+        
+ 
         return redirect()->route('home.update');
 
     }
@@ -115,7 +102,12 @@ class ProfileController extends Controller
     {
         $data = $request->except(['_method', '_token']);
         $user = $this->users->find($id);
+        $img = $data['img'];
+        $date = date('Ymd-his-');
+        $name = $date . $img->getClientOriginalName();
+        Storage::put($name, File::get($img));
 
+        
         $user->update($data);
         return redirect('home');
     }
