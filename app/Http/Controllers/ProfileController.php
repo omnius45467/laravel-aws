@@ -104,9 +104,10 @@ class ProfileController extends Controller
         $user = $this->users->find($id);
         $img = $data['img'];
         $date = date('Ymd-his-');
-        $name = $date . $img->getClientOriginalName();
-        Storage::put($name, File::get($img));
+        $file = $request->file('img');
 
+        $name = $date . $file->getClientOriginalName();
+        Storage::put($name, File::get($file));
         
         $user->update($data);
         return redirect('home');
@@ -127,10 +128,11 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         $img = $user['img'];
+        dd($user);
 
         $accessKey = env('AWS_ACCESS_KEY_ID');
         $secretKey = env('AWS_SECRET_ACCESS_KEY');
-        $bucket = "farscape-64";
+        $bucket = 'farscape-64';
         $item = $img;
 
         $timestamp = strtotime("+1 day");

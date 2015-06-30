@@ -10,7 +10,7 @@
                             <div class="col-md-6">
                                 <h2>{{$user->name}}</h2>
                                 <h3>{{$user->email}}</h3>
-                                <img src="" alt=""/>
+
                                 <button><a href="/home/{{$user->id}}/edit">Edit</a></button>
                             </div>
                             <div class="col-md-6">
