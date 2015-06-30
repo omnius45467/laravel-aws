@@ -102,11 +102,12 @@ class ProfileController extends Controller
     {
         $data = $request->except(['_method', '_token']);
         $user = $this->users->find($id);
-        $img = $data['img'];
+
         $date = date('Ymd-his-');
         $file = $request->file('img');
 
         $name = $date . $file->getClientOriginalName();
+        $data['img'] = $name;
         Storage::put($name, File::get($file));
         
         $user->update($data);
@@ -127,8 +128,8 @@ class ProfileController extends Controller
     public function download($id)
     {
         $user = User::find($id);
-        $img = $user['img'];
-        dd($user);
+        $img = $user->img;
+
 
         $accessKey = env('AWS_ACCESS_KEY_ID');
         $secretKey = env('AWS_SECRET_ACCESS_KEY');
