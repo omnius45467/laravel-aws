@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Marx\Repositories\Contracts\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -53,9 +55,23 @@ class ProfileController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+//        $file = $request->file('img');
+////        if ($file) {
+//            $name = $file->getClientOriginalName();
+//
+//            //upload the file to s3
+//            Storage::put($name, File::get($file));
+//
+//            $newImg = $request->except(['_token', 'report']);
+//            $newImg['img'] = $name;
+//
+//            //TODO: move this to repository
+//            User::create($newImg);
+////        }
+//
+//        return view('user.blade.php');
     }
 
     /**
@@ -92,9 +108,21 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->except(['_method', '_token']);
-        $user = $this->users->find($id);
-
+        $user = User::find($id);
+        $file = $request->file('img');
+        $name = $file->getClientOriginalName();
+        Storage::put($name, File::get($file));
         $user->update($data);
+
+//
+//        $data = $request->except(['_method', '_token']);
+//        $user = $this->users->find($id);
+//        $file = $request->file('img');
+//
+//        $name = $file->getClientOriginalName();
+//        Storage::put($name, File::get($file));
+//
+//        $user->update($data);
         return redirect('home');
     }
 

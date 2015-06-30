@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                {!! Form::model($user, ['route' => ['home.update', $user->id], 'method' => 'PUT']) !!}
+                {!! Form::model($user, ['route' => ['home.update', $user->id, 'files' => true], 'method' => 'PUT']) !!}
                 <div class="well entity-update col-md-12">
                     <div class="form-group col-md-6">
                         {!! Form::label('name') !!}
@@ -16,8 +16,8 @@
                         $user->email]) !!}
                     </div>
                     <div class="form-group col-md-4">
-                        {!! Form::label('profile-picture') !!}
-                        {!! Form::file('profile-picture', '', ['class' => 'form-control', 'placeholder' =>'']) !!}
+                        {!! Form::label('img') !!}
+                        {!! Form::file('img', '', ['class' => 'form-control', 'placeholder' =>''], ['id' => 'report']) !!}
                     </div>
                     <div class="col-md-12">
                         {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}

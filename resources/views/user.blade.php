@@ -14,6 +14,7 @@
                                 <button><a href="/home/{{$user->id}}/edit">Edit</a></button>
                             </div>
                             <div class="col-md-6">
+                                {{$user->img}}
                                 <img src="" alt=""/>
                             </div>
                         </div>
