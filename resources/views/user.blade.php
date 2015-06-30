@@ -14,8 +14,11 @@
                                 <button><a href="/home/{{$user->id}}/edit">Edit</a></button>
                             </div>
                             <div class="col-md-6">
-                                {{$user->img}}
-                                <img src="" alt=""/>
+                                @if($user->img)
+                                    {!! link_to_route('home.download', '', [$user->id], ['class'=>'fa fa-download btn btn-info'], ['attribute'=> 'download']) !!}
+                                @else
+                                <p>No img</p>
+                                @endif
                             </div>
                         </div>
                     </div>

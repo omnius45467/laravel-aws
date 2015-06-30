@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('home', 'ProfileController');
+Route::get('/home/download/{user}', ['uses' => 'ProfileController@download', 'as' => 'home.download']);
 //Route::get('/home', function () {
 //    return view('user');
 //});

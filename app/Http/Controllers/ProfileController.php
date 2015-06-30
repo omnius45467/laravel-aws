@@ -55,23 +55,9 @@ class ProfileController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
-//        $file = $request->file('img');
-////        if ($file) {
-//            $name = $file->getClientOriginalName();
-//
-//            //upload the file to s3
-//            Storage::put($name, File::get($file));
-//
-//            $newImg = $request->except(['_token', 'report']);
-//            $newImg['img'] = $name;
-//
-//            //TODO: move this to repository
-//            User::create($newImg);
-////        }
-//
-//        return view('user.blade.php');
+        //
     }
 
     /**
@@ -108,21 +94,14 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->except(['_method', '_token']);
-        $user = User::find($id);
-        $file = $request->file('img');
-        $name = $file->getClientOriginalName();
-        Storage::put($name, File::get($file));
-        $user->update($data);
+        $user = $this->users->find($id);
+        $img = $data['img'];
+        $date = date('Ymd-his-');
+        $name = $date . $img->getClientOriginalName();
+        Storage::put($name, File::get($img));
 
-//
-//        $data = $request->except(['_method', '_token']);
-//        $user = $this->users->find($id);
-//        $file = $request->file('img');
-//
-//        $name = $file->getClientOriginalName();
-//        Storage::put($name, File::get($file));
-//
-//        $user->update($data);
+        
+        $user->update($data);
         return redirect('home');
     }
 
